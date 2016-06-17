@@ -15,7 +15,7 @@ defmodule Alice.Mixfile do
   end
 
   def application do
-    [applications: [:logger, :slack, :mix], mod: {Alice, []}]
+    [applications: [:logger, :slack, :cowboy, :plug, :mix], mod: {Alice, []}]
   end
 
   defp deps do
@@ -27,7 +27,9 @@ defmodule Alice.Mixfile do
       {:slack,   "~> 0.4.2"},
       {:poolboy, "~> 1.5.0"},
       {:redix,   "~> 0.3.0"},
-      {:poison,  "~> 2.1"}
+      {:poison,  "~> 2.1"},
+      {:plug,    "~> 1.0"},
+      {:cowboy,  "~> 1.0"}
     ]
   end
 

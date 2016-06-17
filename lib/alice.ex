@@ -21,6 +21,7 @@ defmodule Alice do
     import Supervisor.Spec, warn: false
     state_backend_children ++ [
       worker(Alice.State, []),
+      worker(Alice.Webserver, [Application.get_env(:alice, :webserver_port)]),
       worker(Alice.Router, []),
       worker(Alice.Bot, [])
     ]
